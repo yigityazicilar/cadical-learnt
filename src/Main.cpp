@@ -29,7 +29,6 @@ public:
         if (output_clauses) {
           solver->connect_learner(this);
           learnt_clauses_file = fopen(path, "w");
-          fputs("size, clause\n", learnt_clauses_file);
         }
     }
     ~LearntOutput() {
@@ -52,10 +51,13 @@ public:
         else
         {
             if (output_clauses) {
-              fprintf(learnt_clauses_file, "%zu,",  clause.size());
-              for (auto lit : clause)
-                  fprintf(learnt_clauses_file, " %d", lit);
-              fputs("\n", learnt_clauses_file);
+              for (int i = 0; i < clause.size(); i++) {
+                if (i < clause.size() - 1) {
+                  fprintf(learnt_clauses_file, "%d ", clause[i]);
+                } else {
+                  fprintf(learnt_clauses_file, "%d\n", clause[i]);
+                }
+              }
               fflush(learnt_clauses_file);
             }
             clause.clear();
