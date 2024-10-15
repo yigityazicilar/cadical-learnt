@@ -36,3 +36,7 @@ target_link_libraries(cadical-learnt PRIVATE cadical)
 target_include_directories(
     cadical-learnt PRIVATE ${CMAKE_SOURCE_DIR}/cadical/src
 )
+
+set_target_properties(cadical-learnt PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin
+)
