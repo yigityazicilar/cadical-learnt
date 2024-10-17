@@ -27,7 +27,7 @@ set_target_properties(cadical PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/c
 add_dependencies(cadical cadical_lib)
 
 # add the executable with source files from the src directory
-add_executable(cadical-learnt src/main.cpp)
+add_executable(cadical-learnt src/Main.cpp)
 
 # Link the imported cadical library
 target_link_libraries(cadical-learnt PRIVATE cadical)
